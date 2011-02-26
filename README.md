@@ -1,6 +1,8 @@
 Mixtape.js
 ----------
 
+Here's a [video](http://www.youtube.com/watch?v=0orBMjJw3Vk) of this junk.
+
 Mixtape.js is a small node app which I built to listen to songs posted to the blog NahRight... I didn't want to have to manually click though each song when programming...    
 
 Someday I'd like to see this evolve into a tumbltape type project, but for any website... not just tumblr.    
