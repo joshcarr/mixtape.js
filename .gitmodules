@@ -1,0 +1,6 @@
+[submodule "public/js/lib/jquery"]
+	path = public/js/lib/jquery
+	url = https://github.com/jquery/jquery.git
+[submodule "public/js/lib/jquery-ui"]
+	path = public/js/lib/jquery-ui
+	url = https://github.com/jquery/jquery-ui
