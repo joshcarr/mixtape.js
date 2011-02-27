@@ -34,7 +34,7 @@ exports.stations = {
     name: 'dj nodj',
     host: 'http://djnodj.com',
     path: '/?paged='
-  }
+  },
 
   freeindie: {
     name: 'freeindie',
