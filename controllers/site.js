@@ -74,7 +74,7 @@ function _genericMP3 (post) {
   if (!links || !links.length) return false;
  
   links.forEach(function (link) {
-    if (link.attribs.href.match(/.mp3$/)) mp3s.push(link.attribs.href);
+    if (link.attribs.href && link.attribs.href.match(/.mp3$/)) mp3s.push(link.attribs.href);
   });
 
   if (!mp3s.length) return;
@@ -113,7 +113,7 @@ function _scrape (station, page, callback){
         if (err) return console.log("Error: " + err);
         var posts = select(dom, '.post')
           , result = [];
-    
+
         posts.forEach(function (post) {
           post = _processPost(host, post);
           if (post) result.push(post);   
