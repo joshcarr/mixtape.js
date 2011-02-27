@@ -1,7 +1,7 @@
 // module depencies
 var express = require('express')
   , app = express.createServer()
-  , site = require('./site');
+  , site = require('./controllers/site');
 
 console.log(__dirname);
 
@@ -14,7 +14,8 @@ app.use(express.staticProvider(__dirname + '/public'));
 
 //Routes
 app.get('/', site.index);
-app.get('/fetch/:page', site.fetch);
+app.get('/fetch/:station/:page', site.fetch);
+app.get('/listen/:station', site.station);
       
 //Run
 app.listen(3000);

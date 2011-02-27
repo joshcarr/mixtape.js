@@ -18,8 +18,9 @@ var Player = {
   requestSongs: function (callback) {
     var that = this;
     $.ajax({
+      type: 'get',
       dataType: 'json',
-      url: ['/fetch', this.page].join('/'),
+      url: ['/fetch', this.getStation() ,this.page].join('/'),
       success: function (response) {
         if (!response.length) {
           //fetch next page
@@ -31,6 +32,10 @@ var Player = {
         }
       }
     });
+  },
+
+  getStation: function () {
+    return this.station = this.station || $('#station').attr('data-station');
   },
 
   getPhoto: function () {
@@ -150,14 +155,21 @@ var Player = {
   },
 
   setPhoto: function () {
-    var photo = this.getPhoto();
-    var size = this.playlist[this.song].photo.match(/\d+(?=\.)/g) || 'auto';
-    photo.animate({'opacity': 0}, function (){
-      photo.attr('src', Player.playlist[Player.song].photo);
-      photo.parent().animate({'height': size}, function (){
-        photo.css({'height': size});
-        photo.animate({'opacity': 1.0});
+    var photo = this.getPhoto()
+      , src = Player.playlist[Player.song].photo;
+
+    $("<img/>").attr("src", src)
+    .load(function() {
+      var size = this.height;
+
+      photo.animate({'opacity': 0}, function (){
+        photo.attr('src', src);
+        photo.parent().animate({'height': size}, function (){
+          photo.css({'height': size});
+          photo.animate({'opacity': 1.0});
+        });
       });
+
     });
   },
 
