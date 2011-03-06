@@ -11,20 +11,16 @@ var request = require('request')
 //Public Methods
 //===================================
 exports.index = function (req, res) {
-  res.render('player', { 
-    locals: {
+  res.render('player', {
       title: 'Mixtape.js Radio',
       station: 'unpiano' 
-    }
   });
 };
 
 exports.station = function (req, res) {
   res.render('player', {
-    locals: {
-      title: 'Mixtape.js Radio (' + config.stations[req.param('station')].name + ')',
-      station: req.param('station')
-    }
+    title: 'Mixtape.js Radio (' + config.stations[req.param('station')].name + ')',
+    station: req.param('station')
   });
 };
 

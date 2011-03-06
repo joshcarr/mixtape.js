@@ -3,14 +3,12 @@ var express = require('express')
   , app = express.createServer()
   , site = require('./controllers/site');
 
-console.log(__dirname);
-
 //config
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
-app.use(express.bodyDecoder());
+app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.staticProvider(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 //Routes
 app.get('/', site.index);
