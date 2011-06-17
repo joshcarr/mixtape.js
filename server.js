@@ -14,7 +14,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', site.index);
 app.get('/fetch/:station/:page', site.fetch);
 app.get('/listen/:station', site.station);
-      
+
 //Run
 app.listen(3000);
 console.log('startin this bitch on 3000');

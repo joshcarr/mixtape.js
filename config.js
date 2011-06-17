@@ -7,7 +7,7 @@ exports.stations = {
   nahright: {
     name: 'NahRight',
     host: 'http://nahright.com',
-    path: '/news/page' 
+    path: '/news/page'
   },
 
   //vinyl rarities/b-sides... that sorta thing.
@@ -16,7 +16,7 @@ exports.stations = {
     host: 'http://soul-sides.com',
     path: '/page/'
   },
-  
+
   lostturntable: {
     name: 'lost turntable',
     host: 'http://www.lostturntable.com',
@@ -28,8 +28,8 @@ exports.stations = {
     name: 'Unpiano Music',
     host: 'http://unpianomusic.com',
     path: '/page/'
-  }, 
-  
+  },
+
   djnodj: {
     name: 'dj nodj',
     host: 'http://djnodj.com',

@@ -19,7 +19,7 @@ You can add your own stations by editing the config.js file. Currently the only 
 To add a new station, simply add to the stations object in config.js like this:
 
     exports.stations = {
-      
+
       //just add this newstation below nahright and other stations
 
       newstation: {
@@ -27,31 +27,29 @@ To add a new station, simply add to the stations object in config.js like this:
         host: 'http://pathToHost.com'
         page: '/page/path/' //will be used to scrape muliple pages
       }
-    
+
     }
 
-For stations to work, their will need to be links with mp3s on the blog you are trying to scrape. (nahright's station doesn't have this, but it has it's own custom scraper... so yeah). 
+For stations to work, their will need to be links with mp3s on the blog you are trying to scrape. (nahright's station doesn't have this, but it has it's own custom scraper... so yeah).
 
 To listen to your new station just go to:
 
-    http://localhost:3000/listen/newstation 
+    http://localhost:3000/listen/newstation
 
 *Note: that localhost:3000/ will play the unpiano station by default*
 
-Getting this crap running (is probably not worth it)
-----------------------------------------------------
+Getting this running
+--------------------
 
-Your going to want to do this:
+To install dependencies just run the line below from the application route:
 
-    npm install express request jsdom jquery soupselect htmlparser
-
-Which means, you need node + npm...
+    npm install
 
 Also this uses submodules for jquery stuff... so make sure to do:
 
     git submodule update --init
 
-and also make the jquery build... do that going to the root of this project, then:
+and also make the jquery build... do that by going to the root of this project, then:
 
     cd ./public/js/lib/jquery/
     make

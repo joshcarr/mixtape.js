@@ -1,0 +1,20 @@
+{
+  "name": "mixtape.js",
+  "description": "scrapes mp3 blogs and turns them into radio stations",
+  "version": "0.0.1",
+  "author": "Jacob Thornton <@fat>",
+  "main": "./app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://jacobthornton@github.com/fat/mixtape.js.git"
+  },
+  "engine": [ "node >=0.4.0" ],
+  "dependencies": {
+    "express": ">= 2.0.0",
+    "request": ">= 1.9.0",
+    "jsdom": ">= 0.2.0",
+    "jquery": ">= 1.5.1",
+    "soupselect": ">= 0.2.0",
+    "htmlparser": ">= 1.7.3"
+  }
+}

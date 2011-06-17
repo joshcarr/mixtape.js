@@ -13,7 +13,7 @@ var request = require('request')
 exports.index = function (req, res) {
   res.render('player', {
       title: 'Mixtape.js Radio',
-      station: 'unpiano' 
+      station: 'unpiano'
   });
 };
 
@@ -37,7 +37,7 @@ exports.fetch = function(req, res){
 //Private Methods
 //==================================
 function _nahRight (post) {
-  //parse post data 
+  //parse post data
   var data = select(post, 'script');
   if (!data.length) return;
   data = data[0];
@@ -54,13 +54,12 @@ function _nahRight (post) {
 
   //parse title
   var title = data[1].replace(/\"/g, '');
- 
-  //push result 
-  return {
-    mp3: mp3,
-    photo: img,
-    title: title
-  };
+
+  //push result
+  return { mp3: mp3
+         , photo: img
+         , title: title
+         };
 }
 
 function _genericMP3 (post) {
@@ -68,17 +67,17 @@ function _genericMP3 (post) {
     , mp3s = [];
 
   if (!links || !links.length) return false;
- 
+
   links.forEach(function (link) {
     if (link.attribs.href && link.attribs.href.match(/.mp3$/)) mp3s.push(link.attribs.href);
   });
 
   if (!mp3s.length) return;
-  
+
   //parseimg
   var img = select(post, 'img');
   img = img[0] ? img[0].attribs.src : '/noimage.jpg';
- 
+
   var response = [];
 
   mp3s.forEach(function(mp3){
@@ -88,21 +87,21 @@ function _genericMP3 (post) {
       title: mp3.match(/[^\.\/]*\.mp3$/)[0]
     });
   });
-  
+
   return response;
 }
 
 
 function _scrape (station, page, callback){
-  
+
   var host = config.stations[station].host
     , path = config.stations[station].path;
 
   //make request
   request({uri:host + path + page}, function (error, response, body) {
-        
-    if (!error && response.statusCode == 200) { 
-      
+
+    if (!error && response.statusCode == 200) {
+
       //define handler
       var handler = new htmlparser.DefaultHandler(function (err, dom) {
 
@@ -112,9 +111,9 @@ function _scrape (station, page, callback){
 
         posts.forEach(function (post) {
           post = _processPost(host, post);
-          if (post) result.push(post);   
+          if (post) result.push(post);
         });
-     
+
         //flatten array :/
         result = jquery.map(result, function(item){
           return item
@@ -128,7 +127,7 @@ function _scrape (station, page, callback){
       parser.parseComplete(body);
 
     }
- 
+
   });
 
 }
