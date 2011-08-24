@@ -16,5 +16,5 @@ app.get('/fetch/:station/:page', site.fetch);
 app.get('/listen/:station', site.station);
 
 //Run
-app.listen(3000);
-console.log('startin this bitch on 3000');
+app.listen(3001);
+console.log('startin this bitch on 3001');

@@ -52,6 +52,20 @@ exports.stations = {
     name: 'mvb music',
     host: 'http://www.mbvmusic.com',
     path: '/page/'
-  }
+  },
 
-}
+  // Josh stuff
+
+  destinationout: {
+    name: 'destination-out',
+    host: 'http://destination-out.com/',
+    path: '/?paged='
+  },
+
+  alteredzones: {
+    name: 'altered zones',
+    host: 'http://alteredzones.com/',
+    path: '/?page='
+  },
+
+};
