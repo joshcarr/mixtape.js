@@ -95,7 +95,14 @@ function _genericMP3 (post) {
 function _scrape (station, page, callback){
 
   var host = config.stations[station].host
-    , path = config.stations[station].path;
+    , path = config.stations[station].path
+    , classname;
+    
+  if( typeof config.stations[station].classname != 'undefined' ){
+    classname = config.stations[station].classname;
+  } else {
+    classname = 'post';
+  }
 
   //make request
   request({uri:host + path + page}, function (error, response, body) {
@@ -106,7 +113,7 @@ function _scrape (station, page, callback){
       var handler = new htmlparser.DefaultHandler(function (err, dom) {
 
         if (err) return console.log("Error: " + err);
-        var posts = select(dom, '.post')
+        var posts = select(dom, '.' + classname)
           , result = [];
 
         posts.forEach(function (post) {
@@ -116,7 +123,7 @@ function _scrape (station, page, callback){
 
         //flatten array :/
         result = jquery.map(result, function(item){
-          return item
+          return item;
         });
 
         callback(result);
